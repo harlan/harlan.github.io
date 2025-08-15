@@ -46,7 +46,7 @@ ul { margin: 0.5rem 0 0; padding-left: 1.2rem; }
 }
 
 /* Title area to the right of avatar */
-.title-block h1, .title-block h2 { margin: 0; }
+.title-block h1, .title-block h1 { margin: 0; }
 .title-block h1 { font-size: 1.8rem; font-weight: 700; }
 .title-block h2 { font-size: 1.2rem; font-weight: 500; color: #555; }
 
