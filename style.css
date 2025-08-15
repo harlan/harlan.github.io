@@ -1,184 +1,61 @@
-body {
-    font-family: sans-serif;
-    margin: 0;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
+
+/* === Minimal styles for banner + overlapping avatar profile card === */
+
+:root {
+  --card-max: 800px;
+  --card-radius: 8px;
+  --elev: 0 2px 6px rgba(0,0,0,0.12);
+  --pad: 20px;
 }
 
-.banner {
-    /* Show the banner image at its intrinsic size via an <img> tag */
-    display: block;
-    text-align: center;
-    margin: 0 auto;
-    padding: 0;
-}
+/* Base */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color: #111; background: #f6f7f8; line-height: 1.5; }
+a { color: inherit; }
+ul { margin: 0.5rem 0 0; padding-left: 1.2rem; }
 
-.banner-img {
-    display: block;
-    margin: 0 auto;
-    /* Use the image's intrinsic dimensions */
-    width: auto;
-    height: auto;
-    /* Remove max-width so it doesn't scale down; comment in if you want responsiveness */
-    /* max-width: 100%; */
-}
+/* Banner uses the image's intrinsic size */
+.banner { position: relative; }
+.banner-img { display: block; width: auto; height: auto; max-width: 100%; margin: 0 auto; }
 
-.banner h1 {
-    font-size: 3em;
-    margin-bottom: 10px;
-}
-
-.banner p {
-    font-size: 1.2em;
-}
-
-
-.profile-photo {
-    position: absolute;
-    top: -75px; /* amount of overlap into the banner */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid #fff; /* white ring like social profiles */
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-}
-
-.content {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #333;
-    color: white;
-    margin-top: 30px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .banner-img {
-        /* If you'd prefer responsiveness on small screens, uncomment: */
-        /* max-width: 100%; height: auto; */
-    }
-
-    
-
-    .profile-photo {
-        width: 100px;
-        height: 100px;
-        top: -50px;
-    }
-}
-
-    .banner h1 {
-        font-size: 2.5em;
-    }
-
-    .banner p {
-        font-size: 1em;
-    }
-
-    .profile-photo {
-    position: absolute;
-    top: -75px; /* amount of overlap into the banner */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid #fff; /* white ring like social profiles */
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-}
-}
-
-
-.banner {
-    position: relative;
-    text-align: left;
-    padding: 0;
-}
-
-.banner .profile-photo {
-    position: absolute;
-    top: calc(100% - 75px);
-    left: 20px;
-    transform: none;
-}
-
-.banner h1, .banner h2, .banner p {
-    margin-left: 200px; /* leave space for profile image */
-}
-
-
-/* === Unified profile card layout === */
-.profile-header, .banner {
-  position: relative;
-}
-
-.banner-img {
-  display: block;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-}
-
+/* Unified profile card */
 .profile-card {
   position: relative;
-  max-width: 800px;
-  margin: -75px auto 24px; /* overlap the banner slightly */
+  max-width: var(--card-max);
+  margin: -75px auto 24px;  /* overlap the banner slightly */
   background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
-  padding: 90px 20px 20px; /* space for the overlapping avatar */
+  border-radius: var(--card-radius);
+  box-shadow: var(--elev);
+  padding: 90px var(--pad) var(--pad); /* space above for avatar */
 }
 
-.header-row {
-  display: flex;
-  align-items: flex-end;
-  gap: 16px;
-}
+.header-row { display: flex; align-items: flex-end; gap: 16px; }
 
+/* Overlapping avatar (left-aligned) */
 .profile-card .profile-photo {
   position: absolute;
-  top: -75px;   /* overlap amount */
-  left: 120px;   /* left aligned */
+  top: -75px;           /* how much to overlap into banner */
+  left: var(--pad);
   width: 150px;
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
-  border: 5px solid #fff;
+  border: 5px solid #fff;   /* white ring */
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
-.title-block h1,
-.title-block h2 {
-  margin: 0;
-}
+/* Title area to the right of avatar */
+.title-block h1, .title-block h2 { margin: 0; }
+.title-block h1 { font-size: 1.8rem; font-weight: 700; }
+.title-block h2 { font-size: 1.2rem; font-weight: 500; color: #555; }
 
-.profile-body {
-  margin-top: 12px;
-}
+/* Body content inside the card */
+.profile-body { margin-top: 12px; }
 
-/* Mobile tweaks */
+/* Responsive tweaks */
 @media (max-width: 768px) {
-  .profile-card {
-    margin-top: -50px;
-    padding-top: 70px;
-  }
-  .profile-card .profile-photo {
-    width: 110px;
-    height: 110px;
-    top: -55px;
-  }
+  .profile-card { margin-top: -50px; padding-top: 70px; }
+  .profile-card .profile-photo { width: 110px; height: 110px; top: -55px; }
+  .title-block h1 { font-size: 1.5rem; }
 }
