@@ -1,0 +1,117 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.banner {
+    /* Show the banner image at its intrinsic size via an <img> tag */
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.banner-img {
+    display: block;
+    margin: 0 auto;
+    /* Use the image's intrinsic dimensions */
+    width: auto;
+    height: auto;
+    /* Remove max-width so it doesn't scale down; comment in if you want responsiveness */
+    /* max-width: 100%; */
+}
+
+.banner h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.banner p {
+    font-size: 1.2em;
+}
+
+.profile-section {
+    position: relative;
+    text-align: center;
+    padding: 100px 20px 40px; /* extra top padding for the overlapping avatar */
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: -75px auto 20px; /* pull up to overlap banner */
+    max-width: 800px;
+    border-radius: 8px;
+}
+
+.profile-photo {
+    position: absolute;
+    top: -75px; /* amount of overlap into the banner */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #fff; /* white ring like social profiles */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    margin-top: 30px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .banner-img {
+        /* If you'd prefer responsiveness on small screens, uncomment: */
+        /* max-width: 100%; height: auto; */
+    }
+
+    .profile-section {
+        padding-top: 80px;
+        margin-top: -50px;
+    }
+
+    .profile-photo {
+        width: 100px;
+        height: 100px;
+        top: -50px;
+    }
+}
+
+    .banner h1 {
+        font-size: 2.5em;
+    }
+
+    .banner p {
+        font-size: 1em;
+    }
+
+    .profile-photo {
+    position: absolute;
+    top: -75px; /* amount of overlap into the banner */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #fff; /* white ring like social profiles */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+}
+
